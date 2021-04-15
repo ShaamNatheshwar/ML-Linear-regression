@@ -69,3 +69,30 @@ Holding all other features fixed, a 1 unit increase in Avg. Session Length is as
 Holding all other features fixed, a 1 unit increase in Time on App is associated with an increase of 38.59 total dollars spent.
 Holding all other features fixed, a 1 unit increase in Time on Website is associated with an increase of 0.19 total dollars spent.
 Holding all other features fixed, a 1 unit increase in Length of Membership is associated with an increase of 61.27 total dollars spent.
+
+
+
+#linear regression 
+predict the gpa of students in havard with their sat
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+data = pd.read_csv('1.01. Simple linear regression.csv')
+data.head()
+x = data['SAT']
+y = data['GPA']
+x_matrix = x.values.reshape(-1,1)
+reg = LinearRegression()
+reg.fit(x_matrix,y)
+reg.score(x_matrix,y)
+reg.coef_
+new_data = pd.DataFrame(data=[1740,1760],columns=['SAT'])
+new_data
+reg.predict(new_data)
+new_data['Predicted_GPA'] = reg.predict(new_data)
+new_data
+
+x_matrix.shape
+
